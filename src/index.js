@@ -8,7 +8,7 @@ const loader = document.querySelector('.loader');
 // const error = document.querySelector('.error');
 
 gsap.to('body', {
-  background: 'linear-gradient(to right, red, blue)',
+  background: 'linear-gradient(to right, #E9967A, #4682B4)',
   duration: 5,
   repeat: -100,
   yoyo: true,
