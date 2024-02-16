@@ -3,24 +3,19 @@
 // import axios from 'axios';
 import { fetchBreeds, fetchCatByBreed } from './js/cat-api';
 
-const fetchBreedsBtn = document.querySelector('.btn');
 const breedSelect = document.querySelector('.breed-select');
-const catInfo = document.querySelector('.catInfo');
+const catInfo = document.querySelector('.cat-info');
 const loader = document.querySelector('.loader');
+const error = document.querySelector('.error');
 
-fetchBreedsBtn.addEventListener('click', () => {
-  try {
-    loader.classList.remove('hidden');
-    fetchBreeds().then(data => renderSelect(data));
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-// async function fetchBreeds() {
-//   const response = await axios.get(`https://api.thecatapi.com/v1/breeds`);
-//   return response.data;
-// }
+try {
+  loader.classList.remove('hidden');
+  error.classList.add('hidden');
+  fetchBreeds().then(data => renderSelect(data));
+} catch (error) {
+  console.log(error);
+  showError();
+}
 
 function renderSelect(breeds) {
   const markup = breeds
@@ -33,22 +28,34 @@ function renderSelect(breeds) {
 }
 
 breedSelect.addEventListener('change', e => {
-  fetchCatByBreed(e.target.value).then(data => renderCat(date[0]));
+  catInfo.innerHTML = '';
+  loader.classList.remove('hidden');
+  fetchCatByBreed(e.target.value).then(data => renderCat(data[0]));
 });
 
-// https://api.thecatapi.com/v1/images/search
-
-function renderCat(catDate) {
-  const { url } = catDate;
-  const { description, name, temperament } = catDate.breeds[0];
+function renderCat(catData) {
+  const { url } = catData;
+  const { description, name, temperament } = catData.breeds[0];
   catInfo.insertAdjacentHTML(
     'beforeend',
     `<div>
       <h2>${name}</h2>
-      <img src="${name} />
+      <img src="${url}" alt="${name}" />
       <p>${description}</p>
       <p><strong>Temperament:</strong> ${temperament}</p>
     </div>`
-    // `<option value="${id}">${name}</option>`
   );
+  loader.classList.add('hidden');
 }
+
+function showError() {
+  loader.classList.add('hidden');
+  error.classList.remove('hidden');
+}
+
+// async function fetchBreeds() {
+//   const response = await axios.get(`https://api.thecatapi.com/v1/breeds`);
+//   return response.data;
+// }
+// https://api.thecatapi.com/v1/images/search
+// `<option value="${id}">${name}</option>`

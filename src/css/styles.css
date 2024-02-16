@@ -2,6 +2,21 @@
   display: none;
 }
 
+.error {
+  color: #e01111;
+  animation: pulse 1s infinite alternate;
+  font-size: 120%;
+}
+
+@keyframes pulse {
+  0% {
+    font-size: 120%;
+  }
+  100% {
+    font-size: 180%;
+  }
+}
+
 .loader {
   width: 48px;
   height: 48px;
@@ -16,7 +31,7 @@
   position: absolute;
   inset: 0px;
   border-radius: 50%;
-  border: 5px solid #fff;
+  border: 5px solid #e01111;
   animation: prixClipFix 2s linear infinite;
 }
 .loader::after {
@@ -50,4 +65,11 @@
   100% {
     clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
   }
+}
+
+.cat-info img {
+  max-width: 640px;
+  max-height: 480px;
+  width: auto;
+  height: auto;
 }
