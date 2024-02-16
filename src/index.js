@@ -90,13 +90,13 @@ function renderCat(catData) {
   const catName = document.createElement('h2');
   catName.textContent = name;
   const catTemperament = document.createElement('p');
-  catTemperament.textContent = `Temperament: ${temperament}`;
+  catTemperament.innerHTML = `<strong>Temperament:</strong> ${temperament}`;
   const catDescription = document.createElement('p');
   catDescription.textContent = description;
 
   catInfoContainer.appendChild(catName);
-  catInfoContainer.appendChild(catTemperament);
   catInfoContainer.appendChild(catDescription);
+  catInfoContainer.appendChild(catTemperament);
 
   catContainer.appendChild(catInfoContainer);
 
