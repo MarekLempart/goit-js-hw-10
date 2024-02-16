@@ -2,17 +2,17 @@ import gsap from 'gsap';
 import Notiflix from 'notiflix';
 import { fetchBreeds, fetchCatByBreed } from './js/cat-api';
 
-gsap.to('body', {
-  background: 'linear-gradient(to right, red, blue)',
-  duration: 50,
-  repeat: -1,
-  yoyo: true,
-});
-
 const breedSelect = document.querySelector('.breed-select');
 const catInfo = document.querySelector('.cat-info');
 const loader = document.querySelector('.loader');
 // const error = document.querySelector('.error');
+
+gsap.to('body', {
+  background: 'linear-gradient(to right, red, blue)',
+  duration: 5,
+  repeat: -100,
+  yoyo: true,
+});
 
 try {
   loader.classList.remove('hidden');
