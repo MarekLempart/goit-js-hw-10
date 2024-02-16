@@ -19,7 +19,9 @@
   },
   "dependencies": {
     "axios": "^1.6.7",
-    "modern-normalize": "^1.1.0"
+    "gsap": "^3.12.5",
+    "modern-normalize": "^1.1.0",
+    "notiflix": "^3.2.7"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
