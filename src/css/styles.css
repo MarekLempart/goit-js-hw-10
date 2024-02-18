@@ -8,10 +8,21 @@
 }
 
 .cat-container {
-  position: relative;
-  margin: 10px;
+  /* position: relative; */
+  /* margin: 10px; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   height: auto;
 }
+
+/* .cat-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
 
 .cat-container img {
   max-width: 640px;
