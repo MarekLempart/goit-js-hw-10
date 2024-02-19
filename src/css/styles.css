@@ -29,6 +29,10 @@
   display: block;
 }
 
+.cat-container:hover img {
+  transform: scale(1.05);
+}
+
 .cat-info-container {
   position: absolute;
   top: 0;

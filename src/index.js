@@ -35,11 +35,11 @@ function renderSelect(breeds) {
   Notiflix.Loading.remove();
 }
 
-breedSelect.addEventListener('change', e => {
+breedSelect.addEventListener('change', event => {
   catInfo.innerHTML = '';
   loader.classList.remove('hidden');
   Notiflix.Loading.pulse('Loading...');
-  fetchCatByBreed(e.target.value)
+  fetchCatByBreed(event.target.value)
     .then(data => renderCat(data[0]))
     .catch(() => {
       showError();
